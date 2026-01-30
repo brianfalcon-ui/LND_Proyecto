@@ -1,30 +1,43 @@
-/* Fuentes personalizadas */
+/* ESTILOS RESPONSIVE - El Rincón */
+
 @font-face {
     font-family: 'Normal';
     src: url('../fonts/Normal.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 }
 @font-face {
     font-family: 'Negrita';
     src: url('../fonts/Negrita.woff') format('woff2');
-    font-weight: normal;
-    font-style: normal;
 }
 @font-face {
     font-family: 'Cursiva';
     src: url('../fonts/Cursiva.woff') format('woff2');
-    font-weight: normal;
-    font-style: normal;
 }
 @font-face {
     font-family: 'NegritaYCursiva';
     src: url('../fonts/NegritaYCursiva.woff') format('woff2');
-    font-weight: normal;
-    font-style: normal;
 }
 
-/*Menus*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   MENÚ Y NAVEGACIÓN
+   ======================================== */
+
+.menu-toggle {
+    display: none;
+}
+
+/* Menú principal */
 .menu-container {
     font-family: Negrita;
     position: fixed;
@@ -33,27 +46,45 @@
     right: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 30px 20px;
+    align-items: stretch;
+    padding: 0px 20px;
     background-color: #f8f9fa;
     border-bottom: 2px solid #e0e0e0;
     z-index: 100;
+    height:55px;
+    box-sizing: border-box;
 }
 
-.menu-container img:first-of-type {
-    height: 30px;
+/* Icono menú hamburguesa (oculto en desktop) */
+.menu-icon-label {
+    display: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    height: 25px;
 }
 
-.menu-container img:nth-of-type(2) {
+.menu-icon-label img {
+    height: 25px;
+}
+
+/* Logo centrado */
+.logo-img {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    height: 50px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 45px;
+    width: auto;
+    object-fit: contain;
 }
 
+/* Navegación */
 nav {
     margin-left: auto;
+    margin-top: 20px;
 }
+
 nav a {
     text-decoration: none;
     color: #333;
@@ -67,6 +98,7 @@ nav ul {
     display: flex;
     gap: 15px;
 }
+
 nav ul li {
     display: inline;
 }
@@ -75,17 +107,20 @@ nav ul li a:hover {
     color: goldenrod;
 }
 
-/* Notificaciones y su animación */
+/* ========================================
+   NOTIFICACIONES Y HEADER
+   ======================================== */
+
 .notificaciones {
     font-family: 'Normal';
     position: fixed;
-    top: 9%;
+    top: 55px;
     left: 0;
     right: 0;
     display: block;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 8px;
     overflow: hidden; 
     background-color: wheat;
     z-index: 99;
@@ -93,30 +128,35 @@ nav ul li a:hover {
 
 .notificaciones p {
     display: inline-block; 
-    background: transparent;
     width: auto;
     margin: 0;
     white-space: nowrap;
     transform: translateX(100%);
-    animation: scroll-left var(--scroll-duration, 12s) linear infinite;
-    will-change: transform;
+    animation: scroll-left 12s linear infinite;
 }
 
-/*Pausa la animación al pasar el ratón */
 .notificaciones:hover p {
     animation-play-state: paused;
 }
-/* Animación de desplazamiento */
+
 @keyframes scroll-left {
     from { transform: translateX(100%); }
     to   { transform: translateX(-100%); }
 }
 
-/* Video de fondo */
+header {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    margin-top: 90px;
+    overflow: hidden;
+}
+
 .background-video {
-    top: 19%;
+    position: absolute;
+    top: 0;
     left: 0;
-    width: 100%;       
+    width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: -1;
@@ -124,39 +164,244 @@ nav ul li a:hover {
 
 .button-video {
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 8px 15px;
-    font-size: 18px;
+    padding: 15px 25px;
+    font-size: 16px;
     color: white;
     background-color: rgba(245, 222, 179, 0.1);
     border: 0.5px solid rgba(245, 222, 179, 0.699);
     border-radius: 5px;
     cursor: pointer;
     z-index: 1;
+    text-align: center;
 }
+
 .button-video a {
     font-family: 'Negrita';
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
+
 .button-video p {
     font-family: 'Cursiva';
     font-weight: bold;
 }
+
 .button-video a:hover {
     color: rgb(239, 204, 138); 
 }
 
-/* Footer */
+/* ========================================
+   CARRUSEL DE PREMIOS (Sin JavaScript)
+   ======================================== */
+
+.radio-control {
+    display: none;
+}
+
+.premios-section {
+    padding: 60px 20px;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.premios-section h2 {
+    font-family: 'Negrita';
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.premios-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.premios-carousel {
+    flex: 1;
+    min-width: 300px;
+    max-width: 1000px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.premios-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.premio-item {
+    flex: 0 0 calc(25% - 22.5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 150px;
+}
+
+.premio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.premio-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.prev-btn,
+.next-btn {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #f0f0f0;
+    border-color: goldenrod;
+    color: goldenrod;
+}
+
+.premios-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.dot:hover {
+    background-color: #bbb;
+}
+
+/* Control del carrusel con :checked de radio buttons */
+#premio-0:checked ~ .premios-carousel .premios-track { transform: translateX(0); }
+#premio-1:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-1 * (25% + 7.5px))); }
+#premio-2:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-2 * (25% + 7.5px))); }
+#premio-3:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-3 * (25% + 7.5px))); }
+
+#premio-0:checked ~ .premios-dots .dot:nth-child(1),
+#premio-1:checked ~ .premios-dots .dot:nth-child(2),
+#premio-2:checked ~ .premios-dots .dot:nth-child(3),
+#premio-3:checked ~ .premios-dots .dot:nth-child(4) {
+    background-color: goldenrod;
+    width: 30px;
+    border-radius: 5px;
+}
+
+/* ========================================
+   SECCIÓN 1 - DESCRIPCIÓN DEL RESTAURANTE
+   ======================================== */
+
+.seccion-1 {
+    display: flex;
+    gap: 60px;
+    padding: 80px 60px;
+    background-color: #fff;
+    align-items: flex-start;
+}
+
+.p1-seccion-1 {
+    flex: 1;
+    font-family: 'Cursiva';
+    font-size: 24px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.p1-seccion-1 p {
+    margin: 0;
+}
+
+.boton-reserva {
+    align-self: center;
+    padding: 12px 30px;
+    border: 2px solid #b8860b;
+    background-color: white;
+    color: #b8860b;
+    text-decoration: none;
+    font-family: 'Negrita';
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.boton-reserva:hover {
+    background-color: #b8860b;
+    color: white;
+}
+
+.p2-seccion-1 {
+    flex: 1;
+    font-family: 'Normal';
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    text-align: left;
+}
+
+.p2-seccion-1 p {
+    margin: 0 0 15px 0;
+}
+
+.p2-seccion-1 br {
+    display: none;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
 footer.footer {
     font-family: 'Negrita';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
     background-color: #f8f9fa;
     border-top: 2px solid #e0e0e0;
     margin-top: 50px;
@@ -164,6 +409,7 @@ footer.footer {
 
 .footer-izquierda {
     flex: 1;
+    min-width: 150px;
     text-align: left;
 }
 
@@ -176,6 +422,7 @@ footer.footer {
 
 .footer-centro {
     flex: 1;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -194,17 +441,19 @@ footer.footer {
     color: #333;
     font-size: 12px;
 }
+
 .footer-centro a {
     text-decoration: none;
     color: #333;
 }
+
 .footer-centro a:hover {
-    text-decoration: none;
     color: goldenrod;
 }
 
 .footer-derecha {
     flex: 1;
+    min-width: 150px;
     display: flex;
     justify-content: flex-end;
 }
@@ -212,6 +461,8 @@ footer.footer {
 .enlaces-sociales {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .enlaces-sociales a {
@@ -238,3 +489,77 @@ footer.footer {
     background-color: rgba(218, 165, 32, 0.1);
     transform: translateY(-3px);
 }
+
+/* MEDIA QUERIES - RESPONSIVE  */
+
+@media (max-width: 768px) {
+    .menu-icon-label { display: block; position: relative; }
+    .logo-img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 20px; width: auto; object-fit: contain; }
+    nav { position: fixed; top: 60px; left: -100%; width: 100%; height: calc(100vh - 60px); background-color: #f8f9fa; border-right: 2px solid #e0e0e0; transition: left 0.3s ease; z-index: 98; margin-left: 0; }
+    .menu-toggle:checked ~ section nav { left: 0; }
+    nav ul { flex-direction: column; gap: 0; height: 100%; padding: 20px; }
+    nav ul li { padding: 15px 0; border-bottom: 1px solid #e0e0e0; }
+    nav ul li a { font-size: 18px; }
+    .menu-container { padding: 0px 12px; }
+    .notificaciones { top: 48px; padding: 8px; font-size: 12px; }
+    .notificaciones p { font-size: 12px; }
+    header { height: 50vh; margin-top: 10%; }
+    .button-video { padding: 12px 20px; font-size: 14px; }
+    .button-video p { font-size: 14px; }
+    .premios-section h2 { font-size: 28px; margin-bottom: 30px; }
+    .premios-container { gap: 10px; }
+    .premio-item { flex: 0 0 calc(50% - 15px); height: 120px; }
+    #premio-0:checked ~ .premios-carousel .premios-track { transform: translateX(0); }
+    #premio-1:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-1 * (50% + 15px))); }
+    #premio-2:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-2 * (50% + 15px))); }
+    #premio-3:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-3 * (50% + 15px))); }
+    footer.footer { flex-direction: column; padding: 20px 10px; gap: 15px; }
+    .footer-izquierda, .footer-centro, .footer-derecha { flex: 1; width: 100%; justify-content: center; }
+    .footer-derecha { justify-content: center; }
+    .enlaces-sociales { justify-content: center; }
+    .seccion-1 { flex-direction: column; gap: 40px; padding: 60px 40px; }
+    .p1-seccion-1 { font-size: 20px; }
+    .p2-seccion-1 { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .menu-container { padding: 0px 10px; }
+    .logo-img { height: 20px; }
+    .notificaciones { top: 48px; padding: 6px; }
+    .notificaciones p { font-size: 11px; }
+    header { height: 40vh; margin-top: 9%; }
+    .button-video { padding: 10px 15px; font-size: 12px; }
+    .button-video p { font-size: 12px; margin: 5px 0; }
+    .premios-section { padding: 40px 15px; }
+    .premios-section h2 { font-size: 24px; margin-bottom: 20px; }
+    .premios-container { gap: 8px; margin-bottom: 20px; }
+    .premio-item { flex: 0 0 calc(100% - 0px); height: 100px; padding: 15px; }
+    #premio-0:checked ~ .premios-carousel .premios-track { transform: translateX(0); }
+    #premio-1:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-1 * (100% + 30px))); }
+    #premio-2:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-2 * (100% + 30px))); }
+    #premio-3:checked ~ .premios-carousel .premios-track { transform: translateX(calc(-3 * (100% + 30px))); }
+    .prev-btn, .next-btn { width: 35px; height: 35px; font-size: 20px; }
+    .premios-dots { gap: 6px; }
+    .dot { width: 8px; height: 8px; }
+    .dot.active, #premio-0:checked ~ .premios-dots .dot:nth-child(1), #premio-1:checked ~ .premios-dots .dot:nth-child(2), #premio-2:checked ~ .premios-dots .dot:nth-child(3), #premio-3:checked ~ .premios-dots .dot:nth-child(4) { width: 24px; }
+    .footer-izquierda h3 { font-size: 18px; }
+    .footer-centro p { font-size: 11px; }
+    .enlaces-sociales a { width: 35px; height: 35px; }
+    .enlaces-sociales a img { width: 20px; height: 20px; }
+    .seccion-1 { flex-direction: column; gap: 30px; padding: 40px 20px; }
+    .p1-seccion-1 { font-size: 18px; gap: 20px; }
+    .p2-seccion-1 { font-size: 13px; line-height: 1.6; }
+}
+
+@media (max-width: 320px) {
+    .menu-container { padding: 12px 8px; }
+    .menu-icon-label img { height: 25px; }
+    .logo-img { height: 20px; }
+    .button-video p, .button-video a { font-size: 11px; }
+    .premios-section h2 { font-size: 20px; }
+    .premio-item { padding: 12px; height: 90px; }
+    .seccion-1 { padding: 30px 15px; gap: 25px; }
+    .p1-seccion-1 { font-size: 16px; }
+    .p2-seccion-1 { font-size: 12px; }
+}
+

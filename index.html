@@ -6,10 +6,17 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>El Rincón - Restaurante</title>
 </head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
 <section>
     <div class="menu-container">
-        <img src="img/menu-icon.png" alt="menú desplegable iconos">
-        <img src="img/logo-icon.jpg" alt="logo del restaurante">
+        <label for="menu-toggle" class="menu-icon-label">
+            <img src="img/menu-icon.png" alt="menú desplegable iconos">
+        </label>
+
+        <img src="img/logo-icon.jpg" alt="logo del restaurante" class="logo-img">
 
         <nav>
             <ul class="nav-links">
@@ -37,35 +44,94 @@
 </header>
 
 <body>
-    
-</body>
+    <!-- CARRUSEL SIN JAVASCRIPT: Usa radio buttons + CSS :checked -->
+    <section id="premios" class="premios-section">
+        <h2>Nuestros Premios</h2>
+        
+        <div class="premios-container">
+            <!-- Radio buttons ocultos controlan qué diapositiva se muestra -->
+            <input type="radio" name="premio" id="premio-0" class="radio-control" checked>
+            <input type="radio" name="premio" id="premio-1" class="radio-control">
+            <input type="radio" name="premio" id="premio-2" class="radio-control">
+            <input type="radio" name="premio" id="premio-3" class="radio-control">
 
-<footer class="footer">
-    <div class="footer-izquierda">
-        <h3>El Rincón</h3>
-    </div>
-    
-    <div class="footer-centro">
-        <img src="img/logo-icon.jpg" alt="logo del restaurante">
-        <p>Creado por <a href="https://www.portfoliopersonal.com/brian" target="_blank">Brian Falcón</a></p>
-    </div>
-    
-    <div class="footer-derecha">
-        <div class="enlaces-sociales">
-            <a href="https://www.facebook.com/elrincon" target="_blank" title="Facebook">
-                <img src="img/facebook-icon.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/elrincon" target="_blank" title="Instagram">
-                <img src="img/instagram-icon.png" alt="Instagram">
-            </a>
-            <a href="https://www.twitter.com/elrincon" target="_blank" title="X (Twitter)">
-                <img src="img/twitter-icon.png" alt="Twitter">
-            </a>
-            <a href="https://wa.me/elrincon" target="_blank" title="WhatsApp">
-                <img src="img/whatsapp-icon.png" alt="WhatsApp">
-            </a>
+            <label for="premio-0" class="prev-btn">&#10094;</label>
+            
+            <div class="premios-carousel">
+                <div class="premios-track">
+                    <div class="premio-item">
+                        <img src="img/premio-1.jpg" alt="Premio 1">
+                    </div>
+                    <div class="premio-item">
+                        <img src="img/premio-2.jpg" alt="Premio 2">
+                    </div>
+                    <div class="premio-item">
+                        <img src="img/premio-3.jpg" alt="Premio 3">
+                    </div>
+                    <div class="premio-item">
+                        <img src="img/premio-4.jpg" alt="Premio 4">
+                    </div>
+                    <div class="premio-item">
+                        <img src="img/premio-5.jpg" alt="Premio 5">
+                    </div>
+                    <div class="premio-item">
+                        <img src="img/premio-6.jpg" alt="Premio 6">
+                    </div>
+                    <div class="premio-item">
+                        <img src="img/premio-7.jpg" alt="Premio 7">
+                    </div>
+                </div>
+            </div>
+
+            <label for="premio-1" class="next-btn">&#10095;</label>
         </div>
-    </div>
-</footer>
+        
+        <div class="premios-dots">
+            <label for="premio-0" class="dot"></label>
+            <label for="premio-1" class="dot"></label>
+            <label for="premio-2" class="dot"></label>
+            <label for="premio-3" class="dot"></label>
+        </div>
+    </section>
+
+    <section class="seccion-1">
+        <div class="p1-seccion-1">
+            <p>El Rincón, galardonado con una estrella Michelin y dos Soles Repsol, abrió sus puertas con el objetivo de convertirse en un clásico contemporáneo de la restauración.</p>
+            <a href="#reservas" class="boton-reserva">RESERVA AHORA</a>
+        </div>
+        <div class="p2-seccion-1">
+            <p>El restaurante, situado en el mismo emplazamiento del mítico hotel «Gloria Palace *****», se distribuye en dos plantas, brindando una variedad de opciones para satisfacer las diferentes necesidades de cada cliente, a través del bar, centrado en la coctelería, la sala principal, y sus cinco reservados que ocupan toda la planta superior del restaurante.</p>
+            <p>El Rincón ofrece una experiencia culinaria en la que destaca el respeto por los productos de temporada y sus productores, y la maestría en la mezcla de técnicas clásicas y contemporáneas, tanto en el servicio como en la cocina.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-izquierda">
+            <h3>El Rincón</h3>
+        </div>
+        
+        <div class="footer-centro">
+            <img src="img/logo-icon.jpg" alt="logo del restaurante">
+            <p>Creado por <a href="https://www.portfoliopersonal.com/brian" target="_blank">Brian Falcón</a></p>
+        </div>
+        
+        <div class="footer-derecha">
+            <div class="enlaces-sociales">
+                <a href="https://www.facebook.com/elrincon" target="_blank" title="Facebook">
+                    <img src="img/facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/elrincon" target="_blank" title="Instagram">
+                    <img src="img/instagram-icon.png" alt="Instagram">
+                </a>
+                <a href="https://www.twitter.com/elrincon" target="_blank" title="X (Twitter)">
+                    <img src="img/twitter-icon.png" alt="Twitter">
+                </a>
+                <a href="https://wa.me/elrincon" target="_blank" title="WhatsApp">
+                    <img src="img/whatsapp-icon.png" alt="WhatsApp">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
 
 </html>
