@@ -706,13 +706,23 @@ footer.footer {
 }
 
 /* ========================================
-   SECCIÓN RESERVAS
+   SECCIÓN RESERVAS y EXPERIENCIAS 
    ======================================== */
+/*      == OCULTAMIENTO CON CSS [PENDIENTE DE DECIDIR SI SE HACE CON CSS O JS] == */
+
+/*#regala {
+  display: none;
+}
+
+#regala:target {
+  display: block;
+} */
 
 .seccionreservas {
     padding: 80px 60px;
     background-color: #fff;
 }
+
 
 .reservas-header {
     font-family: 'NegritaYCursiva';
@@ -920,6 +930,7 @@ footer.footer {
     padding: 40px;
     border-radius: 4px;
     text-align: center;
+    margin-bottom: 2%;
 }
 
 .reservas-info p {
