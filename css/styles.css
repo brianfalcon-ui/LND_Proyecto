@@ -28,6 +28,25 @@ html, body {
     height: 100%;
     overflow-x: hidden;
 }
+/* ========================================
+    SECCIONES OCULTAS (RESERVAS, REGALA, COCINA)
+   ======================================== */
+#reservas,
+#regala,
+#cocina,
+#bar {
+    display: none;
+}
+
+#reservas:target,
+#regala:target,
+#cocina:target {
+    display: block;
+}
+
+#bar:target {
+    display: grid;
+}
 
 /* ========================================
    MENÚ Y NAVEGACIÓN
@@ -606,6 +625,275 @@ header {
 }
 
 /* ========================================
+   SECCIÓN 4 - GRUPOS Y MESAS PRIVADASS
+   ======================================== */
+
+.seccion-4-grupos_privados {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.mesa-grupos,
+.mesa_privada {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.mesa-grupos img,
+.mesa_privada img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Overlay oscuro para mejor legibilidad */
+.mesa-grupos::before,
+.mesa_privada::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+    z-index: 1.5;
+}
+
+/* Contenedor para texto y botón - posicionado a la izquierda */
+.mesa-grupos p,
+.mesa_privada p {
+    position: relative;
+    z-index: 2;
+    font-family: 'Cursiva';
+    font-size: 32px;
+    color: white;
+    text-align: left;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    padding: 0;
+    max-width: 500px;
+}
+
+.mesa-grupos {
+    justify-content: flex-start;
+    padding-left: 80px;
+}
+
+.mesa_privada {
+    justify-content: flex-end;
+    padding-right: 80px;
+}
+
+.mesa_privada p {
+    text-align: right;
+}
+
+.mesa-grupos .boton-reserva,
+.mesa_privada .boton-reserva {
+    position: absolute;
+    bottom: 30px;
+    z-index: 2;
+    background-color: rgba(184, 134, 11, 0.9);
+    color: white;
+    border: 2px solid #b8860b;
+    transition: all 0.3s ease;
+}
+
+.mesa-grupos .boton-reserva:hover,
+.mesa_privada .boton-reserva:hover {
+    background-color: #b8860b;
+    color: white;
+}
+/* ========================================
+   RESEÑAS
+   ======================================== */
+.resenas {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+/* ========================================
+   SECCIÓN COCINA - MENÚS PARA GRUPOS
+   ======================================== */
+
+.carta {
+    background-color: #fff;
+    padding: 80px 0;
+}
+
+.carta h1 {
+    font-family: 'NegritaYCursiva';
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+}
+
+.carta-menu {
+    display: flex;
+    width: 100%;
+    min-height: 600px;
+}
+
+.carta-menu .menu-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.carta-menu .menu-imagen {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.carta-menu .menu-imagen figure {
+    margin: 0;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.carta-menu .menu-imagen figure img {
+    width: 100%;
+    flex: 1;
+    object-fit: cover;
+    display: block;
+}
+
+/* Crianza: contenido izquierda, imagen derecha */
+.carta-crianza {
+    flex-direction: row;
+}
+
+/* Reserva: imagen izquierda, contenido derecha */
+.carta-reserva {
+    flex-direction: row;
+}
+
+/* Tipografía del contenido */
+.carta-menu h2 {
+    font-family: 'NegritaYCursiva';
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 6px;
+    font-weight: normal;
+}
+
+.carta-menu .subtitulo {
+    font-family: 'Normal';
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.menu-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.menu-tabla td {
+    padding: 12px 0;
+    border-bottom: none;
+}
+
+.menu-tabla h3 {
+    font-family: 'Negrita';
+    font-size: 16px;
+    color: #222;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+}
+
+.menu-tabla .descripcion {
+    font-family: 'Normal';
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.menu-imagen figcaption {
+    font-family: 'Normal';
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    padding: 8px 12px;
+    background-color: #fff;
+    font-style: italic;
+}
+
+.menu-tabla .etiqueta {
+    font-family: 'Normal';
+    font-size: 13px;
+    color: #999;
+    margin: 0 0 4px 0;
+    font-style: italic;
+}
+
+.menu-tabla .precio {
+    font-family: 'Normal';
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.row-extra td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.separador {
+    width: 60px;
+    height: 1px;
+    background-color: #b8860b;
+    margin: 20px auto;
+}
+
+.vinos {
+    text-align: center;
+}
+
+.vinos p {
+    font-family: 'Normal';
+    font-size: 14px;
+    color: #555;
+    margin: 4px 0;
+}
+
+.precio-total {
+    font-family: 'Normal';
+    font-size: 18px;
+    color: #888;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+
+
+
+/* ========================================
    FOOTER
    ======================================== */
 
@@ -1115,6 +1403,33 @@ footer.footer {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 15px;
     }
+    .seccion-4-grupos_privados {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .mesa-grupos,
+    .mesa_privada {
+        height: 280px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .mesa-grupos p,
+    .mesa_privada p {
+        font-size: 24px;
+    }
+
+    .carta-menu {
+        flex-direction: column !important;
+    }
+
+    .carta-menu .menu-contenido {
+        padding: 40px 30px;
+    }
+
+    .carta-menu .menu-imagen {
+        height: 300px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1269,6 +1584,24 @@ footer.footer {
         grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         gap: 12px;
     }
+    .seccion-4-grupos_privados {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 60px 30px;
+    }
+    .mesa-grupos,
+    .mesa_privada {
+        height: 280px;
+    }
+    .mesa-grupos p,
+    .mesa_privada p {
+        font-size: 20px;
+    }
+    .mesa-grupos .boton-reserva,
+    .mesa_privada .boton-reserva {
+        padding: 10px 25px;
+        font-size: 12px;
+    }
     .seccionreservas {
         padding: 60px 40px;
     }
@@ -1364,6 +1697,25 @@ footer.footer {
     .galeria-container {
         grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
         gap: 10px;
+    }
+    .seccion-4-grupos_privados {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 40px 20px;
+    }
+    .mesa-grupos,
+    .mesa_privada {
+        height: 250px;
+    }
+    .mesa-grupos p,
+    .mesa_privada p {
+        font-size: 18px;
+    }
+    .mesa-grupos .boton-reserva,
+    .mesa_privada .boton-reserva {
+        padding: 8px 20px;
+        font-size: 11px;
+        margin-bottom: 20px;
     }
     .seccionreservas {
         padding: 40px 20px;
